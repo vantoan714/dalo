@@ -1,0 +1,245 @@
+.zl-modal{
+    /* display: none !important; */
+    left: -450px !important;
+}
+
+.popover-v3--unselect{
+    z-index: 99999 !important;
+}
+
+.chat-input-container--audit-2023__left-layout {
+    display: flex
+;
+    align-items: center;
+    flex-grow: 1;
+    min-width: calc(100% - 150px) !important;
+    max-width: 100%;
+    cursor: text;
+}
+
+#frameMain_th {
+    width: 0% !important;
+    height: 100%;
+    float: right;
+    position: absolute;
+    right: -800px;
+    top: 0;
+    z-index: 9999;
+    border: none;
+    /* display: none; */
+}
+#container.WEB {
+    padding-top: 0;
+    margin-top: 0;
+    height: 100%;
+    width: 100%;
+}
+.tds-banner-download__container{
+    display: none !important;
+}
+
+.mytooltip {
+    position: absolute;
+    background-color: #9254de;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    /* z-index: 9999; */
+  }
+  iframe {
+    /* width: 100%; */
+    height: 100vh !important;
+    /* border: none; */
+  }
+  /* body, html {
+    background-color: #333;
+    color: #e4e6eb;
+    text-shadow: 0 0 1px currentColor;
+} */
+
+ /* Base styles */
+.conv-item-body {
+    transition: filter 0.3s ease-in-out;
+}
+
+.conv-item-body:hover {
+    filter: blur(0px);
+}
+
+/* Blur styles when .blur-active class is present */
+/* This will blur the content of the last message */
+.blur-active .conv-item-body {
+    filter: blur(8px);
+    z-index: 9999999;
+}
+
+/* Remove blur on hover */
+.blur-active .conv-item-body:hover {
+    filter: blur(0px);
+}
+
+/* Remove blur on hover of the parent (.msg-item) */
+.msg-item:hover .conv-item-body {
+    filter: blur(0px);
+    z-index: 9999999;
+}
+
+.msg-item:hover .zavatar {
+    background: none;
+}
+
+.blur-active .msg-item:hover img {
+    visibility: visible !important;
+}
+
+.blur-active .zavatar img {
+    visibility: hidden !important; 
+}
+
+.blur-active .zavatar img {
+    display: none;
+  }
+  .zavatar img {
+    display: block; /* or inline-block depending on layout */
+  }
+  
+
+.blur-active .zavatar {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmUiF-YGjavA63_Au8jQj7zxnFxS_Ay9xc6pxleMqCxH92SzeNSjBTwZ0l61E4B3KTS7o&usqp=CAU') !important;
+    background-size: cover;
+    background-position: center;
+    width: 100px; /* Set the size similar to the img */
+    height: 100px; /* Set the size similar to the img */
+    border-radius: 50%; /* Make sure it remains circular */
+    transition: background-image 0.3s ease-in-out; 
+}
+
+.blur-active .chat-item:hover  .zavatar {
+    background-image: none; 
+    
+} 
+.blur-active .chat-item:hover  .zavatar img {   
+    visibility: visible; 
+} 
+.zavatar:hover img {
+    visibility: visible; 
+}
+
+
+/* Blur the message content except sender name when .blur-active is applied */
+.blur-active .chat-content .chat-message > div > div:not(.card-sender-name),
+.blur-active .chat-content .chat-message .card--text > div:not(.card-sender-name),
+.blur-active .chat-content .chatImageMessage .img-msg-v2__bub,
+.blur-active .chat-content .chatImageMessage .img-msg-v2__ft,
+.blur-active .chat-content .quote-banner,
+.blur-active .chat-content .message-reaction-container,
+.blur-active .chat-content .overflow-hidden > span,
+.blur-active .chat-content .image-box,
+.blur-active .chat-content .image-box__image img {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+/* Keep sender name and timestamp clear */
+.blur-active .chat-content .card-sender-name,
+.blur-active .chat-content .card-send-time {
+    filter: none !important;
+}
+
+/* Unblur on hover */
+.blur-active .chat-content .chat-message:hover > div > div:not(.card-sender-name),
+.blur-active .chat-content .chat-message:hover .card--text > div:not(.card-sender-name),
+.blur-active .chat-content .chatImageMessage:hover .img-msg-v2__bub,
+.blur-active .chat-content .chatImageMessage:hover .img-msg-v2__ft,
+.blur-active .chat-content .chat-message:hover .quote-banner,
+.blur-active .chat-content .chat-message:hover .message-reaction-container,
+.blur-active .chat-content .chat-message:hover .overflow-hidden > span,
+.blur-active .chat-content .chat-message:hover .image-box,
+.blur-active .chat-content .chat-message:hover .image-box__image img {
+    filter: blur(0);
+}
+
+/* Ensure sender name and timestamp stay on top */
+.chat-content .card-sender-name,
+.chat-content .card-send-time {
+    position: relative;
+    z-index: 1;
+}
+
+/* Additional styles to handle GIFs and other media */
+.blur-active .chat-content .chatImageMessage img,
+.blur-active .chat-content .chatFileMessage,
+.blur-active .chat-content .chatStickerMessage,
+.blur-active .chat-content .chatGifMessage {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+.blur-active .chat-content .chat-message:hover .chatImageMessage img,
+.blur-active .chat-content .chat-message:hover .chatFileMessage,
+.blur-active .chat-content .chat-message:hover .chatStickerMessage,
+.blur-active .chat-content .chat-message:hover .chatGifMessage {
+    filter: blur(0);
+}
+
+
+#blurToggle {
+    width: 45px; /* Width of the button */
+    height: 45px; /* Height of the button */
+    background-color: #333; /* Button background color */
+    border: none; /* No border */
+    border-radius: 50%; /* Make it circular */
+    color: white; /* Default text/icon color */
+    font-size: 26px; /* Size of the Font Awesome icon */
+    display: flex; /* Flexbox to center the content */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for background color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9999999;
+    border: 1px solid #555;
+}
+
+#blurToggle:hover {
+    background-color: #555; /* Change background color on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+
+
+
+/* #blurToggle:hover {
+    background-color: #15191d;
+} */
+
+@keyframes blurEffect {
+    0% {
+        filter: blur(0) !important;
+    }
+    100% {
+        filter: blur(8px) !important;
+    }
+}
+
+/* Class to apply blur and trigger the animation */
+.blur-ok {
+    animation: blurEffect 25s forwards; /* Apply the blur effect over 5 seconds */
+}
+.system-banner__container{
+    display: none !important;
+}
+
+.message-sender-name-content {
+    display: inline;
+    color: #ab9f1b !important;
+}
+
+/* 
+#chatOnboard{
+    background-color: #333333 !important;
+} */

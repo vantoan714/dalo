@@ -1,0 +1,57 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icons/logo_gold.png",
+         "16": "icons/logo_gold.png",
+         "32": "icons/logo_gold.png",
+         "48": "icons/logo_gold.png"
+      },
+      "default_popup": ""
+   },
+   "background": {
+      "service_worker": "js/background.bundle.js"
+   },
+   "content_scripts": [ {
+      "css": [ "css/style.css" ],
+      "js": [ "js/jquery-3.1.1.min.js", "js/content.bundle.js" ],
+      "matches": [ "*://chat.zalo.me/*" ]
+   }, {
+      "css": [ "css/toastr.min.css" ],
+      "js": [ "js/jquery-3.1.1.min.js", "js/toastr.min.js", "js/notify.min.js", "js/content_login.bundle.js" ],
+      "matches": [ "*://id.zalo.me/*" ]
+   } ],
+   "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+   },
+   "default_locale": "vi",
+   "description": "__MSG_extDescription__",
+   "externally_connectable": {
+      "matches": [ "*://chat.zalo.me/*", "*://id.zalo.me/*", "*://api.vietqr.io/*" ]
+   },
+   "host_permissions": [ "*://chat.zalo.me/*", "*://*.chat.zalo.me/*", "*://id.zalo.me/*", "*://key.laptrinhvb.net/*", "*://tinyurl.com/*", "*://zalomarketingpro.com/*" ],
+   "icons": {
+      "128": "icons/logo_gold.png",
+      "16": "icons/logo_gold.png",
+      "32": "icons/logo_gold.png",
+      "48": "icons/logo_gold.png"
+   },
+   "incognito": "split",
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuJ6sicfYFmhuE/NQd2SCCks8JtagTBekYoqONPM2p8yLEYlbeDKz9k12sx4DVgq0K1qpRElSRLUCkUepnWy0uubbhbemjQTIwbxA/iDZ/cQDhdeAY0szpo795eqJUHuHYujI7mNXeavqr4HXnWHB2FeBTkN/Ge37lDSN662M9cFTKzDYEGku7gGjuLvHoISxM/C0JpElICrJGXe/MfSQ8hmgfdrIeWA+uueJ3DLAtg3P2PwxPvsCZnCfTmmaCZY4QFR4C1hF1lwK4b9cNegixIcufupRDfaE3yQExiPKHn2NSsyuwt7DMkTL97v3CzVWOZyvNe4Tc8V9KfaHNK7GMQIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_extName__",
+   "oauth2": {
+      "client_id": "1052200460322-4o42jeit1mfa40oa4ibk9ofjftfq2i4h.apps.googleusercontent.com",
+      "scopes": [ "https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email" ]
+   },
+   "options_ui": {
+      "open_in_tab": true,
+      "page": "page/options.html"
+   },
+   "permissions": [ "identity", "storage", "cookies", "clipboardWrite", "activeTab", "scripting" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "6.0.5",
+   "web_accessible_resources": [ {
+      "matches": [ "*://chat.zalo.me/*", "*://id.zalo.me/*" ],
+      "resources": [ "page/login.html", "page/popup.html" ]
+   } ]
+}

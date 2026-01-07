@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en" class="[--scroll-mt:9.875rem] lg:[--scroll-mt:6.3125rem] [scrollbar-gutter:stable] js-focus-visible">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zalo Marketing Pro</title>
+  <link href="https://fonts.googleapis.com/css?family=Kanit|Rubik" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+  <!-- Include Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Include Handsontable CSS -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../css/toastr.min.css">
+  <link rel="stylesheet" href="../css/jquery-confirm.min.css">
+  <link rel="stylesheet" href="../css/skins/all.css">
+  <link rel="stylesheet" href="../css/multiple-select.min.css">
+  <link rel="stylesheet" href="../css/popup_style.css">
+  <link rel="stylesheet" href="../css/introjs.css">
+
+</head>
+
+<body class="relative antialiased text-slate-500 bg-white">
+
+  <div class="language-switcher">
+    <span>VIE</span><img src="../img/vn-flag.png" alt="Tiếng Việt" data-lang="vi" class="active" title="Tiếng Việt">
+    <img src="../img/en-flag.png" alt="English" data-lang="en" title="English"><span>ENG</span>
+  </div>
+
+  <a href="#" title="">
+
+    <div id="divAvatar" class="absolute top-0 right-0 p-4 flex flex-col items-center space-y-2 hover:cursor-pointer"
+      style="cursor: pointer; z-index: 9999; position: absolute;">
+      <div class="relative">
+        <img id="img_avatar" src="https://s120-ava-talk.zadn.vn/b/5/1/1/1/120/29106132f6426defad714bc19562f520.jpg"
+          alt="User Avatar" class="w-10 h-10 rounded-full hover:cursor-pointer">
+
+
+
+
+      </div>
+      <img src="../img/border_avatar.png" alt="Bấm vào chuyển tài khoản" class="avatar-frame anim-spin"
+        style="width: 60px; margin-top: -11px;">
+      <!-- Icon chuyển đổi tài khoản -->
+
+      <span class="text-gray-800 text-18px"><span id="txtusername_zalo"
+          class="text-blue-700 text-18px font-bold hover:cursor-pointer texteffect"></span>
+        <span
+          class="px-1 py-0.3 text-[8px] font-bold rounded-md border-2 shadow-md transition-all duration-300 ease-in-out"
+          style="z-index: 99; font-size: 9px; color: #fff; background-color: #B97902; border-color: goldenrod;
+             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+             transform: scale(1);"
+          onmouseover="this.style.transform='scale(1.2)'; this.style.boxShadow='0px 4px 8px rgba(0, 0, 0, 0.4)';"
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0px 2px 5px rgba(0, 0, 0, 0.3)';">
+          SUPER VIP PRO
+        </span>
+
+        <!-- <span style="font-size: 14px;">👑</span> -->
+      </span>
+    </div>
+  </a>
+
+  <div class="relative -mt-[5.75rem] overflow-hidden pt-[5.75rem]">
+    <!-- <div class="relative -mt-[5.75rem] overflow-hidden pt-[5.75rem]" style="border-left: 2px dashed lightgray; border-bottom: 2px dashed lightgray;"> -->
+
+    <div class="white-preview" style="position: relative; z-index: 1; margin-top: 12px; margin-left: 30px;">
+      <input type="checkbox" class="checkbox" id="checkbox">
+      <label for="checkbox" class="checkbox-label">
+        <i class="fa fa-moon-o"></i>
+        <i class="fa fa-sun-o"></i>
+        <span class="ball"></span>
+      </label>
+    </div>
+    <div style="position: fixed; top: 0px; left: 100px; z-index: 99; text-align: center;">
+      <span id="zoom-value" style="display: block; margin-top: 5px; font-size: 12px; text-align: center;">100%</span>
+      <input type="range" id="zoom-slider" class="slider" min="0" max="200" value="100"
+        style="display: block; margin: 0 auto;">
+
+    </div>
+
+
+
+
+
+    <!-- <input type="hidden"  id="txtIMEI"/> -->
+
+    <img src="../img/beams-basic.png" alt="" class="absolute left-0 top-0 -ml-[39rem] w-[113.125rem] max-w-none z-0"
+      style="z-index: -1;" id="imgBackground" style="display: none;">
+    <div class="flex-grow container pb-16 w-full" style="margin: 0 auto; clear: both; position: relative;"
+      id="zoom-container">
+      <div class="header text-center py-4 rounded-t-lg  mb-2">
+        <h1 class="title text-center text-capitalize char-flash" style="color: #006edc; font-size: 30px;"
+          id="flashText">Zalo Marketing Pro</h1>
+        <p data-translate="welcome_subtitle" style="text-align: center;">Nhắn tin có chiến lược</p>
+        <!-- <p>Phiên bản: 2.0.16</p> -->
+
+      </div>
+
+      <!-- <div class="mb-3 pt-4"> -->
+      <div class="mb-3">
+        <div id="tableCount" class="text-gray-700 mt-2 mb-2 text-sm"></div>
+        <div id="dataTableContainer" class="table-wrp block max-h-25" style="clear: both;"></div>
+        <input type="file" id="fileDanhSach" class="mb-3 input-field" style="display: none;">
+      </div>
+      <input type="file" id="fileMedia" multiple class="mb-3 input-field" style="display: none;">
+
+      <div class="relative inline-block text-left" style="margin-right: 4px; float: left; ">
+        <div>
+          <button type="button"
+            class="pink-button inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 hover:bg-pink-600 text-sm font-medium text-gray-700  focus:outline-none"
+            id="menu-button2" aria-expanded="true" aria-haspopup="true" style="height: 35px; font-size: 12px;">
+            <span data-translate="friends_groups">Bạn bè & Nhóm</span>
+            <i class="fa fa-caret-down ml-2" aria-hidden="true" style="line-height: 22px;"></i>
+          </button>
+        </div>
+
+        <div id="dropdown-menu2" style="z-index: 99999999;"
+          class="origin-top-left absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+          role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+          <div class="py-1" role="none">
+
+            <button id="btnGetFriends" data-option="1"
+              class="btngetfriend_nhom hover:bg-gray-300 text-gray-700 block px-4 py-2 text-sm w-full text-left"
+              role="menuitem">
+              <i class="fa fa-user-o" aria-hidden="true"></i> <span data-translate="friends">Bạn bè</span>
+            </button>
+
+
+            <div class="border-t border-gray-200 my-1 hidden"></div>
+            <button id="btnNhom" data-option="3"
+              class="btngetfriend_nhom hover:bg-gray-300 text-gray-700 block px-4 py-2 text-sm w-full text-left"
+              role="menuitem">
+              <i class="fa fa-users"></i> <span data-translate="all_groups">Nhóm & Cộng đồng</span>
+            </button>
+
+            <button id="btnFriendAndGroup" data-option="2"
+              class="btngetfriend_nhom hover:bg-gray-300 text-gray-700 block px-4 py-2 text-sm w-full text-left"
+              role="menuitem">
+              <i class="fa fa-handshake-o" aria-hidden="true"></i> <span data-translate="friends_groups">Bạn bè và
+                nhóm</span>
+            </button>
+            <div class="border-t border-gray-200 my-1"></div>
+            <button id="btnDanhSachTachNhom" data-option="6"
+              class="hover:bg-gray-300 text-gray-700 block px-4 py-2 text-sm w-full text-left" role="menuitem">
+              <i class="fa fa-scissors" aria-hidden="true"></i> <span data-translate="split_group_list">Danh sách tách
+                nhóm</span>
+            </button>
+            <button id="btnNhomAdmin" style="color: red;" data-option="4"
+              class="btngetfriend_nhom hover:bg-gray-300 text-gray-700 hidden block px-4 py-2 text-sm w-full text-left"
+              role="menuitem">
+              <i class="fa fa-user-secret" aria-hidden="true"></i> <span data-translate="admin_groups">Nhóm là
+                Admin</span>
+            </button>
+            <button id="btnNhomKoAdmin" data-option="5"
+              class="btngetfriend_nhom hover:bg-gray-300 text-gray-700 hidden block px-4 py-2 text-sm w-full text-left"
+              role="menuitem">
+              <i class="fa fa-user" aria-hidden="true"></i> <span data-translate="non_admin_groups">Nhóm không là
+                Admin</span>
+            </button>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <!-- <button id="btnGetFriends"  class="pink-button hover:bg-pink-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+          <i class="fa fa-users" aria-hidden="true"></i> Bạn bè
+        </button>   -->
+
+      <div class="relative inline-block text-left">
+        <button id="dropdownButton"
+          class="dropdown-button bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="button">
+
+          <span data-translate="import_data">Nhập dữ liệu</span>
+          <i class="fa fa-caret-down ml-2" aria-hidden="true"></i>
+        </button>
+
+        <div id="dropdownMenu"
+          class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+          <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="dropdownButton">
+            <button id="btnNhapDienThoai"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300 w-full text-left" role="menuitem">
+              <i class="fa fa-plus-circle mr-2" aria-hidden="true"></i> <span data-translate="import_phone">Nhập số điện
+                thoại</span>
+            </button>
+            <button id="btnImportExcel"
+              class="block px-4 py-2 text-sm text-gray-700  hover:bg-gray-300 w-full text-left" role="menuitem">
+              <i class="fa fa-folder-open mr-2"></i> <span data-translate="import_list">Nhập danh sách</span>
+            </button>
+            <button id="btnImportHoaDon"
+              class="block px-4 py-2 text-sm text-gray-700  hover:bg-gray-300 w-full text-left" role="menuitem">
+              <i class="fa fa-credit-card mr-2"></i> <span data-translate="import_invoice">Nhập hóa đơn</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative inline-block text-left">
+        <button id="dropdownButton2"
+          class="dropdown-button bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="button">
+          <span data-translate="friend_invites">Lời mời kết bạn</span>
+          <i class="fa fa-caret-down ml-2" aria-hidden="true"></i>
+        </button>
+
+        <div id="dropdownMenu2"
+          class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+          <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="dropdownButton2">
+
+
+            <button id="toggleButton2" class="block px-4 py-2 text-sm text-gray-700  hover:bg-gray-300 w-full text-left"
+              role="menuitem">
+              <i class="fa fa-user-plus" aria-hidden="true"></i> <span data-translate="suggested_friends">Gợi ý kết
+                bạn</span>
+            </button>
+
+
+            <button id="toggleButton" class="block px-4 py-2 text-sm text-gray-700  hover:bg-gray-300 w-full text-left"
+              role="menuitem">
+              <i class="fa fa-history" aria-hidden="true"></i> <span data-translate="recall_requests">Thu hồi kết
+                bạn</span>
+            </button>
+
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+
+      <!-- <button id="toggleButton"  class="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+          <i class="fa fa-history" aria-hidden="true"></i> Thu hồi kết bạn
+        </button>
+         -->
+
+      <button id="btnShareAllFen"
+        class="share-button hover:bg-orange-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="button">
+        <i class="fa fa-share-alt" aria-hidden="true"></i> <span data-translate="share_friends">Chia sẻ bạn bè</span>
+      </button>
+
+      <!-- <button id="btnDanhSachChiaNho"  class="share-button hover:bg-orange-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+          <i class="fa fa-scissors" aria-hidden="true"></i> Danh sách
+        </button> -->
+
+      <!-- <button id="btnOpenImage"  style="margin-left: 8px; " class="send-button hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            <i class="fa fa-file-image-o"></i> Chọn image, file...
+        </button> -->
+
+      <!-- <button id="btnXuatTxt"  style="margin-left: 8px; float: right; " class="text-button hover:bg-purple-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            <i class="fa fa-file-text-o" aria-hidden="true"></i> Xuất Text
+        </button>
+
+        <button id="btnXuatExcel"  style="margin-left: 8px; float: right; " class="success-button hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            <i class="fa fa-file-excel-o" aria-hidden="true"></i> Xuất Excel
+        </button> -->
+      <div class="relative inline-block text-left" style="margin-left: 8px; float: right; ">
+        <div>
+          <button type="button" style="background-color: purple; color: #fff; height: 35px;"
+            class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
+            id="menu-button" aria-expanded="true" aria-haspopup="true">
+            <span data-translate="export_data" style="font-size: 12px;">Xuất dữ liệu</span>
+            <i class="fa fa-caret-down ml-2" aria-hidden="true" style="margin-top: 4px;"></i>
+          </button>
+        </div>
+
+        <div id="dropdown-menu" style="z-index: 99999999;"
+          class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+          role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+          <div class="py-1" role="none">
+            <button id="btnXuatTxt" class="hover:bg-gray-300 text-gray-700 block px-4 py-2 text-sm w-full text-left"
+              role="menuitem">
+              <i class="fa fa-file-text-o mr-2" aria-hidden="true"></i> <span data-translate="export_text">Xuất
+                Text</span>
+            </button>
+            <button id="btnXuatExcel" class="hover:bg-gray-300 text-gray-700 block px-4 py-2 text-sm w-full text-left"
+              role="menuitem">
+              <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i> <span data-translate="export_excel">Xuất
+                Excel</span>
+            </button>
+            <div class="border-t border-gray-200 my-1"></div>
+            <button id="btnXuatDanhBaTxtTen"
+              class="hover:bg-gray-300 text-gray-700 block px-4 py-2 text-sm w-full text-left" role="menuitem">
+              <i class="fa fa-address-book-o mr-2 text-gray-700" aria-hidden="true"></i> <span class="text-gray-700"
+                data-translate="export_contacts_txt_ten">Xuất Tên Danh Bạ</span>
+            </button>
+            <button id="btnXuatDanhBaTxt"
+              class="hover:bg-gray-300 text-gray-700 block px-4 py-2 text-sm w-full text-left" role="menuitem">
+              <i class="fa fa-address-book-o mr-2 text-yellow-700" aria-hidden="true"></i> <span class="text-yellow-700"
+                data-translate="export_contacts_txt">Xuất Danh Bạ Txt</span>
+            </button>
+            <button id="btnXuatDanhBa" class="hover:bg-gray-300 text-gray-700 block px-4 py-2 text-sm w-full text-left"
+              role="menuitem">
+              <i class="fa fa-address-book-o mr-2 text-blue-700" aria-hidden="true"></i> <span class="text-blue-700"
+                data-translate="export_contacts">Xuất Danh Bạ Zalo</span>
+            </button>
+
+            <button id="btnXuatVcard" class="hover:bg-gray-300 text-gray-700 block px-4 py-2 text-sm w-full text-left"
+              role="menuitem">
+              <i class="fa fa-address-card mr-2 text-green-700" aria-hidden="true"></i> <span class="text-green-700"
+                data-translate="export_vcard">Xuất Danh Bạ Vcard</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="thumbnailPreview" class="thumbnail-container pt-4 mb-0" style="overflow: auto; clear: both;"></div>
+      <div id="selectedItemsCount" class="text-gray-700 mt-2 mb-2 text-sm" style="float: left;">
+        <span data-translate="selected_files_text">Bạn đã chọn</span>
+        <span class="text-blue-500 font-bold">0</span>
+        <span data-translate="selected_files_unit">tập tin</span>
+      </div>
+      <div style="margin-left: 12px; float: right;">
+        <label for="tagSelect" class="block text-sm font-medium text-gray-700" style="display: inline;"
+          data-translate="tags">Label:</label>
+        <select id="tagSelect" class="icheck" style="border: 1px solid gray">
+          <option value="-1" data-translate="choose_category">-- Chọn nhãn --</option>
+        </select>
+        <label>
+          <input type="checkbox" id="chkKetBanNhom" class="icheck"> <label
+            class="block text-sm font-medium text-gray-700" style="display: inline;"
+            data-translate="add_friend_group">KB Nhóm</label>
+        </label>
+
+        <label>
+          <input type="checkbox" id="chkTudongRutGonLink" class="icheck"> <label
+            class="block text-sm font-medium text-gray-700" style="display: inline;"
+            data-translate="auto_short_link">Auto rút gọn link</label>
+        </label>
+        <label>
+          <input type="checkbox" id="chkDoiTen" class="icheck"> <label class="block text-sm font-medium text-gray-700"
+            style="display: inline;" data-translate="change_name">Đổi tên + Số ĐT</label>
+        </label>
+      </div>
+      <!-- <div class="max-w-md mb-3  p-6 rounded-lg shadow-md"> -->
+      <!-- <h2 class="text-2xl font-bold mb-4">Cài đặt</h2> -->
+      <form style="clear: both;">
+        <div class="flex space-x-4">
+          <div>
+            <label for="delay" class="block text-sm font-medium text-gray-700" data-translate="delay_between">TG chờ
+              giữa 2 zalo (giây)</label>
+            <input type="number" min="1" id="delay" name="delay"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder="10" value="10">
+          </div>
+          <div>
+            <label for="delay1" class="block text-sm font-medium text-gray-700" data-translate="account_limit">Giới hạn
+              số account:</label>
+            <input type="number" min="1" id="delay1" name="delay1"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder="10" value="10">
+          </div>
+          <div>
+            <label for="delay2" class="block text-sm font-medium text-gray-700" data-translate="delay_between_turns">TG
+              chờ giữa mỗi lượt (giây)</label>
+            <input type="number" min="1" id="delay2" name="delay2"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder="30" value="30">
+          </div>
+
+          <div>
+            <label for="delay3" class="block text-sm font-medium text-gray-700" data-translate="delay_send_image">TG chờ
+              gởi hình (giây)</label>
+            <input type="number" min="3" id="delay3" name="delay3"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder="3" value="3">
+          </div>
+
+
+        </div>
+      </form>
+      <!-- </div> -->
+
+
+
+      <div class="mb-3 pt-4">
+        <label class="block text-sm font-medium text-gray-700 mb-2" for="txtMessage" style="display: block;float: left;"
+          data-translate="content">
+          Nội dung:
+        </label>
+        <button id="emojiButton" class="text-gray-500 hover:text-yellow-700 focus:outline-none"
+          style="float: left;font-size: 30px;margin-top: -10px;margin-left: 14px;">
+          <i class="fa fa-smile-o text-xl" aria-hidden="true"></i>
+        </button>
+
+        <button id="btnOpenImage" class="text-gray-500 hover:text-blue-700 focus:outline-none"
+          style="float: left;font-size: 30px;margin-top: -10px;margin-left: 14px;">
+          <i class="fa fa-picture-o text-md" aria-hidden="true"></i>
+        </button>
+
+        <div class="divCheckbox" style="display: flex; flex-direction: row-reverse;">
+          <div style="margin-left: 12px;">
+            <label>
+              <input type="checkbox" id="chkKiemTraHopLe" class="icheck"> <label
+                class="block text-sm font-medium text-gray-700" style="display: inline;" data-translate="valid">Hợp
+                lệ</label>
+            </label>
+          </div>
+          <div style="margin-left: 12px;">
+            <label>
+              <input type="checkbox" id="chkHuyBan" class="icheck"> <label
+                class="block text-sm font-medium text-gray-700" style="display: inline;" data-translate="unfriend">Hủy
+                bạn</label>
+            </label>
+          </div>
+          <div style="margin-left: 12px;">
+            <label>
+              <input type="checkbox" id="chkKetBan" class="icheck"> <label
+                class="block text-sm font-medium text-gray-700" style="display: inline;" data-translate="add_friend">Kết
+                bạn</label>
+            </label>
+          </div>
+
+          <div style="margin-left: 12px;">
+            <label>
+              <input type="checkbox" id="chkTuDongKetBan" class="icheck"> <label
+                class="block text-sm font-medium text-gray-700" style="display: inline;" data-translate="auto_add">Tự
+                động KB</label>
+            </label>
+          </div>
+          <div style="margin-left: 12px;">
+            <label>
+              <input type="checkbox" id="chkShowModal" class="icheck"> <label
+                class="block text-sm font-medium text-gray-700" style="display: inline;"
+                data-translate="show_modal">Show modal</label>
+            </label>
+          </div>
+          <div style="margin-left: 12px;">
+            <label>
+              <input type="checkbox" id="chkAutoScroll" class="icheck"> <label
+                class="block text-sm font-medium text-gray-700" style="display: inline;" data-translate="auto_scroll">Tự
+                động cuộn</label>
+            </label>
+          </div>
+        </div>
+        <div id="emojiPickerPopup">
+          <emoji-picker id="emojiPickerElement"></emoji-picker>
+        </div>
+
+
+        <div class="relative textarea-wrapper">
+
+          <textarea rows="3"
+            class="text-base shadow-lg appearance-none border border-gray-300 rounded-lg w-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            style="font-size: 0.9rem;" id="txtMessage" data-translate-placeholder="message_placeholder"></textarea>
+          <span id="clearIcon"
+            class="hidden absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer text-gray-500">&times;</span>
+          <div id="charCount" class="absolute right-4 hidden text-gray-500">0 ký tự</div>
+
+          <button class="shorten-btn" id="shortenBtn" title="Rút gọn link"><i class="fa fa-link"
+              aria-hidden="true"></i></button>
+          <button class="vanban-btn" id="vanban-btn" title="Tạo văn bản"><i class="fa fa-pencil-square-o"
+              aria-hidden="true"></i></button>
+          <!-- <button class="shorten-btn2" id="use-ai-btn"><i class="fa fa-link" aria-hidden="true"> Use AI</i></button> -->
+        </div>
+
+
+      </div>
+
+      <div class="flex items-center justify-between w-full">
+        <div class="flex items-center">
+          <button id="btnSend"
+            class="send-button hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button">
+            <i class="fa fa-play" aria-hidden="true"></i> <span data-translate="execute">Thực hiện</span>
+          </button>
+
+
+
+          <button id="btnStop" style="display: none;"
+            class="stop-button hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-3"
+            type="button">
+            <i class="fa fa-stop-circle"></i> <span data-translate="stop">Dừng lại</span>
+          </button>
+          <button id="manageCampaignsButton"
+            class="ml-3 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button">
+            <i class="fa fa-suitcase mr-2" aria-hidden="true"></i> <span data-translate="campaigns">Chiến dịch</span>
+          </button>
+          <div style="margin-left: 12px; display: block;">
+            <label><span data-translate="country_code">Mã vùng:</span>
+              <input type="text" id="countryCodeInput" placeholder="+84" value=""
+                class="border border-gray-300 rounded p-1 text-center text-red-500" style="width: 40px;"> </label>
+          </div>
+        </div>
+
+        <div class="flex items-center">
+          <div class="relative group mr-3">
+            <button id="dropdownActionsButton" type="button"
+              class="dropdown-button hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              style="background-color: #4b5563;">
+              <i class="fa fa-ellipsis-v" aria-hidden="true"></i> <span data-translate="more_actions">Thao tác</span>
+            </button>
+            <div id="dropdownActions"
+              class="absolute z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 bottom-full right-0 mb-1 pb-1 pt-1">
+              <div class="dropdown-content" style="background-color: #4B5563;">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownActionsButton">
+                  <li>
+                    <button id="openOptions"
+                      class="dropdown-item block w-full px-4 py-2 hover:bg-red-800 text-white hover:text-white text-left">
+                      <i class="fa fa-language mr-2" aria-hidden="true"></i> <span data-translate="option_translate">Tùy
+                        chọn dịch</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button id="btnTaiFileMau"
+                      class="dropdown-item block w-full px-4 py-2 hover:bg-red-800 text-white hover:text-white text-left">
+                      <i class="fa fa-cloud-download mr-2" aria-hidden="true"></i> <span
+                        data-translate="download_sample">Tải file import mẫu</span>
+                    </button>
+                  </li>
+
+                  <li>
+                    <button id="btnXoaCache"
+                      class="dropdown-item block w-full px-4 py-2 hover:bg-red-800 text-white hover:text-white text-left">
+                      <i class="fa fa-trash-o mr-2" aria-hidden="true"></i> <span data-translate="clear_cache">Xóa
+                        Cache</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button id="btnReset"
+                      class="dropdown-item block w-full px-4 py-2 hover:bg-red-800 text-white hover:text-white text-left">
+                      <i class="fa fa-refresh mr-2" aria-hidden="true"></i> <span data-translate="refresh">Làm
+                        mới</span>
+                    </button>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <button id="btnLogout"
+            class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button" style="background-color: rgb(103 40 40);">
+            <i class="fa fa-sign-out"></i> <span data-translate="logout_zalo">Thoát zalo</span>
+          </button>
+        </div>
+      </div>
+      <!-- <div class="mt-4" style="text-align: left;">
+          <a href="https://chrome.google.com/webstore/detail/kgbfpnnjchndjegeckjggbgcmklefman/reviews" target="_blank" class="text-blue-500 hover:underline text-left">
+          📌 Bấm để Đánh giá và đề xuất tính năng mới cho ứng dụng, bạn ơi.
+          </a>
+          </div> -->
+
+
+      <!-- <div class="flex items-center flex-end">
+            <button id="btnSend" class="send-button hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Bắt đầu gởi tin
+            </button>
+
+            <button id="btnStop"  style="margin-left: 12px; display: none;" class="stop-button hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                <i class="fa fa-hand-paper-o"></i> Dừng gởi
+            </button>
+
+            
+            <button id="btnLogout"  style="margin-left: 8px; float: right; " class="stop-button hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                <i class="fa fa-sign-out"></i> Đăng xuất
+            </button>
+
+            <button id="btnKetBan" class="send-button hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                <i class="fa fa-user-plus" aria-hidden="true"></i> Bắt đầu kết bạn
+            </button>
+
+            <button id="btnStopKetBan"  style="margin-left: 12px; display: none;" class="stop-button hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                <i class="fa fa-hand-paper-o"></i> Dừng kết bạn
+            </button>
+
+            <div>
+                <input type="checkbox" id="checkbox" class="hidden" checked />
+                <label for="checkbox">
+                  <span class="checkbox"></span>
+                  <span class="ml-2 text-gray-700">Kết bạn</span>
+                </label>
+              </div>
+
+         
+        </div> -->
+      <!-- Footer -->
+
+
+      <div
+        class="flex items-center justify-between py-2 fixed bottom-0 left-0 w-full bg-gray-900 border-t border-gray-600 px-4 z-50">
+
+        <p class="text-gray-400 text-xs text-left">
+          🎬 <a class="text-blue-400 hover:text-blue-300"
+            href="https://www.youtube.com/watch?v=bhD_scG8Wro&list=PLChh31_jyPo8G5y6TjTUJTyyhSLS02Sqs&ab_channel=Th%E1%BA%A3oMeoTV"
+            target="_blank" data-translate="support_tutorial"> Hướng dẫn</a> | <span id="txtThoiHan"></span>
+        </p>
+
+        <p class="text-gray-400 text-xs text-right">
+          <span data-translate="account_info">Tài khoản: </span><span id="txtTaiKhoanEmail"
+            class="text-blue-400 font-bold underline cursor-pointer">Guess</span> | <a
+            class="text-blue-400 hover:text-blue-300" href="#" id="btnDangXuatAcc" data-translate="logout">Đăng xuất</a>
+        </p>
+
+      </div>
+
+      <div id="campaignModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden" style="overflow: auto;">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6 relative my-8 mx-auto" style="overflow: auto;">
+          <button id="closeModal" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+            ✖
+          </button>
+          <h2 class="text-xl font-bold mb-4" data-translate="campaign_title">Chiến Dịch</h2>
+
+          <button id="addItemButton" class="text-blue-500 hover:text-blue-700 underline bg-transparent p-0"
+            data-translate="campaign_add">
+            Thêm chiến dịch mới
+          </button>
+
+          <form id="campaignForm" class="space-y-4 hidden">
+            <div>
+              <label for="campaignName" class="block text-sm font-medium" data-translate="campaign_name">Tên chiến
+                dịch:</label>
+              <input type="text" id="campaignName"
+                class="w-full p-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                placeholder="Enter campaign name" required>
+            </div>
+            <div>
+              <label for="campaignContent" class="block text-sm font-medium" data-translate="campaign_content">Nội
+                dung:</label>
+              <textarea id="campaignContent"
+                class="w-full p-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300" rows="5"
+                placeholder="Enter campaign content" required></textarea>
+            </div>
+
+            <div class="flex space-x-4">
+              <button type="submit" class="w-full bg-green-500 text-white p-2 rounded-md hover:bg-green-600"
+                data-translate="save">
+                Lưu lại
+              </button>
+              <button type="button" id="closeModalButton"
+                class="w-full bg-gray-500 text-white p-2 rounded-md hover:bg-gray-600" data-translate="close">
+                Đóng
+              </button>
+            </div>
+          </form>
+
+          <h3 class="text-xl font-semibold mt-6 mb-2" data-translate="list">Danh sách</h3>
+          <div class="max-h-[250px] overflow-y-auto">
+            <table class="w-full table-auto border-collapse border border-gray-300">
+              <thead class="bg-gray-200 sticky top-0">
+                <tr>
+                  <th class="border border-gray-300 p-2" data-translate="select">Chọn</th>
+                  <th class="border border-gray-300 p-2" data-translate="campaigns">Chiến dịch</th>
+                  <th class="border border-gray-300 p-2" data-translate="content">Nội dung</th>
+                  <th class="border border-gray-300 p-2" style="width: 100px;" data-translate="actions">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="campaignList">
+                <!-- Dynamic content will be added here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <canvas id="canvas" width="500" height="500"
+        style="position: absolute; left: -9999px; visibility: hidden;"></canvas>
+
+
+      <input type="hidden" value="" id="txtgroupname" />
+      <input type="hidden" value="" id="txtgroupuid" />
+
+
+      <!-- Include Handsontable JavaScript -->
+      <script src="../js/jquery-latest.min.js"></script>
+      <!-- <script src="../js/handsontable.full.min-new.js"></script> -->
+      <!-- <script src="../js/handsontable.full.min.js"></script> -->
+      <script src="../js/xlsx.full.min.js"></script>
+      <script src="../js/FileSaver.min.js"></script>
+      <script src="../js/toastr.min.js"></script>
+      <script src="../js/jquery-confirm.min.js"></script>
+      <script src="../js/jquery.cookie.js"></script>
+      <script src="../js/icheck.js"></script>
+      <script src="../js/multiple-select.min.js"></script>
+      <script src="../js/jquery.simple-checkbox-table.min.js"></script>
+      <script src="../js/notify.min.js"></script>
+      <script src="../js/sweetalert.js"></script>
+      <script src="../js/intro.js"></script>
+      <script src="../js/dragcheck.js"></script>
+      <script src="../js/html2canvas.min.js"></script>
+      <script type="module" src="../js/picker.min.js"></script>
+
+      <script src="../js/popup.bundle.js"></script>
+      <!-- <script src="../dist/popup.bundle.js"></script> -->
+</body>
+
+</html>

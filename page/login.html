@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" class="[--scroll-mt:9.875rem] lg:[--scroll-mt:6.3125rem] [scrollbar-gutter:stable] js-focus-visible">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zalo Marketing Pro</title>
+    <link href="https://fonts.googleapis.com/css?family=Kanit|Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        .title {
+            font-family: Anton, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body:not(.dark-mode) {
+            background-image: url("../img/background-image.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        body.dark-mode {
+            background-image: url("../img/background-image-dark.jpg");
+        }
+
+        .sub-title {
+            margin-top: 2px !important;
+            margin-left: 150px;
+        }
+
+        body.dark-mode .text-gray-600 {
+            color: #9ca3af;
+        }
+
+        body #speedcapture {
+            opacity: 0.25;
+        }
+
+
+        /* Fix for dark mode modal visibility */
+        body.dark-mode #modalTitle {
+            color: #ffffff !important;
+        }
+
+        body.dark-mode #modalDesc {
+            color: #d1d5db !important;
+            /* gray-300 */
+        }
+
+        body.dark-mode #googlePhone {
+            background-color: #374151 !important;
+            /* gray-700 */
+            color: #ffffff !important;
+            border-color: #4b5563 !important;
+            /* gray-600 */
+        }
+
+        body.dark-mode #googlePhone::placeholder {
+            color: #9ca3af !important;
+            /* gray-400 */
+        }
+
+        body.dark-mode #btnCancelPhone {
+            background-color: #4b5563 !important;
+            /* gray-600 */
+            color: #ffffff !important;
+        }
+
+        body.dark-mode #btnCancelPhone:hover {
+            background-color: #6b7280 !important;
+            /* gray-500 */
+        }
+    </style>
+    <link rel="stylesheet" href="../css/popup_style.css">
+</head>
+
+<body class="flex items-center justify-center dark:bg-gray-900 transition-colors duration-300">
+    <div class="language-switcher" style="left: 80px; top: 15px;">
+        <span>VIE</span><img src="../img/vn-flag.png" alt="Tiếng Việt" data-lang="vi" class="active" title="Tiếng Việt">
+        <img src="../img/en-flag.png" alt="English" data-lang="en" title="English"><span>ENG</span>
+    </div>
+
+    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md transition-colors duration-300"
+        style="margin: 0 32px; width: 380px;" id="loginContainer">
+        <!-- Theme switcher -->
+        <div class="absolute top-4 right-4">
+            <button id="themeToggle"
+                class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                <svg xmlns="http://www.w3.org/2000/svg" id="sunIcon" class="h-6 w-6 text-gray-800 dark:text-gray-200"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                <!-- Moon icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" id="moonIcon" class="h-6 w-6 text-gray-800 dark:text-gray-200"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Form đăng nhập -->
+        <div id="loginForm" class="space-y-4">
+            <h1 class="title text-center text-capitalize text-blue-600 dark:text-blue-400" style="font-size: 30px;"
+                id="txtTitle">Sign In</h1>
+            <p class="text-center text-sm text-gray-600 dark:text-gray-400 mb-4 sub-title">Zalo Marketing Pro</p>
+
+            <!-- Regular login form -->
+            <input type="email" id="loginEmail" placeholder="Email" required
+                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                autocomplete="new-email">
+            <div class="relative">
+                <input type="password" id="loginPassword" placeholder="Password" required
+                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white pr-10"
+                    autocomplete="new-password">
+                <button type="button" id="togglePassword"
+                    class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
+                    <i class="fa fa-eye-slash"></i>
+                </button>
+            </div>
+            <div class="flex items-center">
+                <input type="checkbox" id="rememberMe" class="mr-2">
+                <label for="rememberMe" class="text-sm text-gray-600 dark:text-gray-400" id="lblRemember">Remember
+                    me</label>
+            </div>
+            <button type="button" id="loginButton"
+                class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300">Sign
+                In</button>
+
+            <!-- Google registration section -->
+            <div class="mt-4 text-center">
+                <p class="text-sm text-gray-600 dark:text-gray-400"><span id="lblChuaCoTaiKhoan">Don't have an
+                        account?</span><a href="#" id="showRegister" class="text-blue-500 hover:underline">Register</a>
+                </p>
+                <button id="googleRegisterBtn"
+                    class="w-full mt-2 bg-white text-gray-700 border border-gray-300 py-2 rounded-md hover:bg-gray-50 transition duration-300 flex items-center justify-center">
+                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="w-5 h-5 mr-2"
+                        alt="Google logo">
+                    <span id="spanGoogle">Continue with Google</span>
+                </button>
+            </div>
+
+            <div class="mt-8 pt-4 border-t border-gray-200 dark:border-gray-700">
+                <p class="text-center text-sm text-gray-500 dark:text-gray-400">
+                    <span id="lblContact">Contact us:</span>
+                    <a href="https://zalo.me/0933913122" target="_blank"
+                        class="text-orange-500 hover:text-orange-600 transition duration-300 hover:underline"
+                        style="color: orange">
+                        <span id="lblAdmin">Admin Thao Nguyen</span>
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Registration Form -->
+        <div id="registerForm" class="hidden flex flex-row space-x-8">
+            <!-- Left side: Registration Form -->
+            <div class="w-full space-y-4">
+                <h1 class="title text-center text-capitalize text-blue-600 dark:text-blue-400" style="font-size: 30px;"
+                    id="txtTitleRegister">Register</h1>
+                <p class="text-center text-sm text-gray-600 dark:text-gray-400 mb-4 sub-title">Zalo Marketing Pro</p>
+                <input type="email" id="regEmail" placeholder="Email" required
+                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    autocomplete="new-email">
+                <input type="password" id="regPassword" placeholder="Password" required
+                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    autocomplete="new-password">
+                <input type="text" id="regFullname" placeholder="Full Name"
+                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    autocomplete="new-fullname">
+                <input type="text" id="regPhone" placeholder="Phone"
+                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    autocomplete="new-phone">
+                <input type="text" id="regAddress" placeholder="Address"
+                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    autocomplete="new-address">
+                <select style="display: none;" id="regPlan"
+                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+                    <option value="-1" selected>-- Select License Plan --</option>
+
+                </select>
+
+                <button type="button" id="registerButton"
+                    class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300">Register</button>
+                <p class="mt-4 text-center text-sm text-gray-600 dark:text-gray-400"><span id="txtDacotaikhoan">Already
+                        have an account? </span><a href="#" id="showLogin"
+                        class="text-blue-500 hover:underline">Login</a></p>
+            </div>
+
+            <!-- Right side: QR Code Section -->
+            <div class="w-1/2 flex flex-col items-center justify-center border-l border-gray-200 dark:border-gray-700 pl-8"
+                id="divQRCode" style="display: none;">
+                <h2 class="text-xl font-semibold mb-4 text-center text-gray-800 dark:text-gray-200">Scan QR Code to Pay
+                </h2>
+                <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg shadow-inner">
+                </div>
+                <p class="mt-4 text-sm text-gray-600 dark:text-gray-400 text-center">After scanning the code, please
+                    enter your payment information in the form on the left.</p>
+            </div>
+        </div>
+
+        <!-- Phone verification modal for Google Login -->
+        <div id="phoneModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden"
+            style="z-index: 1000;">
+            <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white dark:bg-gray-800">
+                <div class="mt-3 text-center">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white" id="modalTitle">Enter Phone
+                        Number</h3>
+                    <div class="mt-2 px-7 py-3">
+                        <p class="text-sm text-gray-500 dark:text-gray-300 mb-3" id="modalDesc">
+                            Please enter the phone number you use for Zalo to register.
+                        </p>
+                        <input type="text" id="googlePhone" placeholder="Phone Number"
+                            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white mb-2">
+                    </div>
+                    <div class="flex items-center px-4 py-3 space-x-4">
+                        <button id="btnSubmitPhone"
+                            class="flex-1 px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                            Continue
+                        </button>
+                        <button id="btnCancelPhone"
+                            class="flex-1 px-4 py-2 bg-gray-300 text-gray-700 dark:bg-gray-600 dark:text-white text-base font-medium rounded-md shadow-sm hover:bg-gray-400 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-300">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-latest.min.js"></script>
+    <script src="../js/notify.min.js"></script>
+    <script src="../js/auth.bundle.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1023 @@
+  /* .custom-body-width {
+            width: 1180px;
+            height: 800px;
+        } */
+
+  body {
+    /* background-image: url('https://example.com/background-image.jpg'); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(10px);
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* box-shadow: 0 0 20px #059669; */
+    /* height: calc(100vh - 30px) !important; */
+    /* margin-left: 20px; */
+    /* margin-right: 20px; */
+    overflow-x: hidden;
+  }
+
+  /* .container {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        } */
+  .jconfirm.jconfirm-white .jconfirm-box .jconfirm-buttons button,
+  .jconfirm.jconfirm-light .jconfirm-box .jconfirm-buttons button {
+    text-transform: none;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: none;
+  }
+
+
+
+  .input-field {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #333;
+  }
+
+  .input-field::placeholder {
+    color: #999;
+  }
+
+  #statusShare {
+
+    padding: 8px;
+    font-size: 14px;
+    color: green;
+    /* font-style: italic; */
+
+  }
+
+  .send-button {
+    background: #26a0dc;
+    color: #fff;
+  }
+
+  .share-button {
+    background: rgb(185, 121, 2);
+    color: #fff;
+  }
+
+  .stop-button {
+    background: rgb(230, 43, 43);
+    color: #ffffff;
+  }
+
+  .success-button {
+    background: #30ac86;
+    color: #ffffff;
+  }
+
+  .text-button {
+    background: #722ed1;
+    color: #ffffff;
+  }
+
+  .pink-button {
+    background: #eb2f96;
+    color: #ffffff;
+  }
+
+  .reset-button {
+    background: #8c8c8c;
+    color: #ffffff;
+  }
+
+  .thumbnail-container {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .delete-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ffffff;
+    color: white;
+    border: none;
+    padding: 6px 6px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+  }
+
+  .thumbnail-container:hover>.delete-button {
+    display: block;
+    cursor: hand;
+  }
+
+  #emojiPicker {
+    display: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999999;
+  }
+
+  #emojiPicker span {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 20px;
+  }
+
+  #emojiPicker span:hover {
+    background-color: #eee;
+  }
+
+  .table {
+    max-height: 35vh;
+    overflow-y: auto;
+    display: block;
+    width: auto;
+  }
+
+  thead {
+    position: sticky;
+    top: 0;
+
+  }
+
+  th {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    /* Adjust background color as needed */
+    z-index: 2;
+    /* Ensure header is on top of other elements */
+  }
+
+  .custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .custom-dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+  }
+
+  .custom-dropdown-menu.show {
+    display: block;
+  }
+
+  .relative {
+    position: relative;
+  }
+
+  #thumbnailPreview {
+    z-index: -1;
+  }
+
+  #clearIcon {
+    /* display: none; Initially hidden */
+    position: absolute;
+    top: 35px;
+    right: 21px;
+    /* Adjust based on your padding */
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 36px;
+    /* Adjust as needed */
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  #charCount {
+    /* display: none; */
+    position: absolute;
+    right: 16px;
+    /* Align with clear icon */
+    top: 8px;
+    /* Position below the textarea */
+    font-size: 12px;
+    /* Adjust as needed */
+    color: #f7f785;
+    /* Tailwind CSS gray-500 color */
+  }
+
+  .title {
+    font-family: Anton, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+
+  #emojiPicker {
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Standard syntax */
+  }
+
+  .card {
+    background-color: #f9f0ff;
+    border: 1px solid #b37feb;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+    padding: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  body.dark-mode .card {
+
+    background-color: #9a3bda;
+    border: 1px solid #b37feb;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+    padding: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-content {
+    font-size: 16px;
+    color: #333;
+    word-wrap: break-word;
+  }
+
+  .clear-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    display: none;
+    /* Initially hidden */
+  }
+
+  .btn-add-acc {
+    display: none !important;
+  }
+
+  .clear-button:hover {
+    background-color: darkred;
+  }
+
+  #divAvatar:hover {
+    cursor: pointer;
+  }
+
+  .jconfirm .jconfirm-box div.jconfirm-title-c {
+    display: block;
+  }
+
+  .jconfirm-title {
+    display: block !important;
+  }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+
+  .notifyjs-bootstrap-success {
+    font-size: 14px;
+  }
+
+  .notifyjs-bootstrap-error {
+    font-size: 14px;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    /* Position above the tooltip */
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .toastr-high-z-index {
+    z-index: 1051 !important;
+    /* Ensure this is higher than the z-index of $.confirm */
+  }
+
+  .jconfirm {
+    z-index: 20 !important;
+  }
+
+  .checkbox {
+    opacity: 0;
+    position: absolute;
+  }
+
+  .checkbox-label {
+    background-color: #006edc;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .fa-moon-o {
+    color: #fff;
+    font-weight: 900;
+    font-size: 16px;
+  }
+
+  .fa-sun-o {
+    color: yellow;
+    font-weight: 900;
+    font-size: 16px;
+  }
+
+  .fa-eye {
+    color: #fff;
+    font-weight: 900;
+    font-size: 16px;
+  }
+
+  .fa-eye-slash {
+    color: #06bd1e;
+    font-weight: 900;
+    font-size: 16px;
+  }
+
+  .checkbox-label .ball {
+    background-color: #fff;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+  }
+
+  .checkbox:checked+.checkbox-label .ball {
+    transform: translateX(24px);
+    /* Move the ball to the right */
+    background-color: #3b82f6;
+    /* Tailwind's blue-500 */
+  }
+
+  .checkbox:checked+.checkbox-label .fa-eye {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .checkbox:checked+.checkbox-label .fa-eye-slash {
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
+
+  .checkbox:checked+.checkbox-label .ball {
+    transform: translateX(24px);
+  }
+
+  .checkbox:checked+.checkbox-label {
+    background-color: #272626;
+  }
+
+  .checkbox:checked+.checkbox-label .fa-moon-o {
+    color: #fff;
+  }
+
+  .checkbox:checked+.checkbox-label .fa-sun-o {
+    color: #006edc;
+  }
+
+  .checkbox:checked+.checkbox-label .fa-eye {
+    color: #fff;
+  }
+
+  .checkbox:checked+.checkbox-label .fa-eye-slash {
+    color: #06bd1e;
+
+  }
+
+
+  body.dark-mode {
+    background-color: #333333;
+    color: #e2e8f0;
+  }
+
+  body.dark-mode .bg-white {
+    background-color: #2d3748 !important;
+  }
+
+  body.dark-mode .text-gray-700 {
+    color: #e2e8f0 !important;
+  }
+
+  body.dark-mode .border-gray-300 {
+    border-color: #4a5568 !important;
+  }
+
+  body.dark-mode .shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Styles for the dark mode toggle */
+  .checkbox-label {
+    background-color: #111;
+    transition: background-color 0.3s ease;
+  }
+
+
+  body.dark-mode #emojiPicker {
+    background-color: #2d3748;
+    border-color: #4a5568;
+  }
+
+  body.dark-mode select#regPlan {
+    background-color: #2d3748;
+  }
+
+  /* body.dark-mode #emojiPicker span {
+    background-color: #4a5568;
+    color: #e2e8f0;
+  }
+
+  body.dark-mode #emojiPicker span:hover {
+    background-color: #718096;
+  } */
+
+  /* Light mode styles for emoji picker */
+  #emojiPicker {
+    background-color: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    display: none;
+    position: absolute;
+    z-index: 1000;
+  }
+
+  /* Dark mode styles for the table */
+  .dark-mode table {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    border-color: #444;
+  }
+
+  .dark-mode thead {
+    background-color: #2c2c2c;
+  }
+
+  .dark-mode th {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+  }
+
+  body.dark-mode .hover\:bg-gray-300:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(57 74 102);
+  }
+
+  .dark-mode #filterContainer {
+    background-color: #1a202c !important;
+    /* Matches dark-mode bg or slightly lighter */
+  }
+
+  .dark-mode #tagSelect,
+  .dark-mode #filterLabelSelect,
+  .dark-mode #searchInput {
+    background-color: #2d3748 !important;
+    color: #e2e8f0 !important;
+    border-color: #4a5568 !important;
+  }
+
+  .dark-mode #filterLabelSelect option {
+    background-color: #2d3748;
+    color: #e2e8f0;
+  }
+
+  .dark-mode td {
+    border-color: #444;
+  }
+
+  .dark-mode tr:nth-child(even) {
+    background-color: #222;
+  }
+
+  .dark-mode tr:hover {
+    background-color: #2a2a2a;
+  }
+
+  .dark-mode input[type="checkbox"] {
+    background-color: #333;
+    border-color: #666;
+  }
+
+  .dark-mode input[type="checkbox"]:checked {
+    background-color: #4a4a4a;
+  }
+
+  body.dark-mode textarea,
+  body.dark-mode input[type="text"],
+  body.dark-mode input[type="number"],
+  body.dark-mode input[type="email"],
+  body.dark-mode input[type="password"] {
+    background-color: #2d3748;
+    color: #e2e8f0;
+    border-color: #4a5568;
+  }
+
+  body.dark-mode textarea::placeholder,
+  body.dark-mode input::placeholder {
+    color: #a0aec0;
+  }
+
+  body.dark-mode textarea:focus,
+  body.dark-mode input:focus {
+    border-color: #63b3ed;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  }
+
+  #emojiPicker span {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s;
+  }
+
+  #emojiPicker span:hover {
+    background-color: #edf2f7;
+  }
+
+  .ball {
+    background-color: #fff;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  body.dark-mode .ball {
+    background-color: #111;
+    transform: translateX(24px);
+  }
+
+  body.dark-mode .jconfirm .jconfirm-box {
+    background-color: #2d3748 !important;
+    color: #e2e8f0 !important;
+  }
+
+  body.dark-mode .jconfirm .jconfirm-box .jconfirm-title-c .jconfirm-title {
+    color: #e2e8f0 !important;
+  }
+
+  body.dark-mode .jconfirm .jconfirm-box .jconfirm-content {
+    color: #cbd5e0 !important;
+  }
+
+  body.dark-mode .jconfirm .jconfirm-box .jconfirm-buttons button {
+    background-color: #4a5568 !important;
+    color: #e2e8f0 !important;
+  }
+
+  body.dark-mode .jconfirm .jconfirm-box .jconfirm-buttons button:hover {
+    background-color: #2d3748 !important;
+  }
+
+  body.dark-mode .jconfirm .jconfirm-box-container .jconfirm-bg {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  body.dark-mode .ms-drop {
+    background: #2D3748;
+    color: #fff;
+  }
+
+  body.dark-mode .ms-choice {
+    background: #2D3748;
+    color: #fff;
+  }
+
+  body.dark-mode .title {
+    color: #fff !important;
+  }
+
+  body.dark-mode .introjs-tooltip {
+    box-sizing: content-box;
+    position: absolute;
+    visibility: visible;
+    background-color: #272c35;
+    color: white;
+    min-width: 250px;
+    max-width: 300px;
+    border-radius: 5px;
+    box-shadow: 0 3px 30px rgba(33, 33, 33, .3);
+    transition: opacity .1s ease-out;
+    border: 1px solid white;
+  }
+
+  body.dark-mode .introjs-nextbutton {
+    float: right;
+    background: #03A9F4;
+    color: white;
+    border: none;
+    text-shadow: 0 0 black;
+  }
+
+
+  body.dark-mode .introjs-donebutton {
+    float: right;
+    background: #02af3b !important;
+    color: white;
+    border: none;
+    text-shadow: 0 0 black;
+  }
+
+  #emojiPickerPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform: translate(-50%, -50%);
+    /* Perfect centering */
+    z-index: 999;
+    /* border: 1px solid #ccc;
+  background-color: white; */
+    padding: 20px;
+  }
+
+  #emojiPicker {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+    background-color: lightgray;
+    border-radius: 5px;
+  }
+
+  #submitEmojis {
+    display: none;
+    margin-top: 10px;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --background: #333333;
+    --border-color: #554c4c;
+    --indicator-color: #5373ec;
+    --input-border-color: #ccc;
+    --input-font-color: #efefef;
+    --input-placeholder-color: #ccc;
+    --outline-color: #fff;
+    --category-font-color: #efefef;
+    --button-active-background: #555555;
+    --button-hover-background: #484848;
+  }
+
+  emoji-picker {
+    width: 500px;
+
+  }
+
+  .char {
+    display: inline-block;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  .char.flash {
+    opacity: 1;
+    /* text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.8); */
+  }
+
+  textarea {
+    position: relative;
+  }
+
+  /* Style the mini button */
+  .shorten-btn {
+    position: absolute;
+    bottom: 8px;
+    right: 4px;
+    background-color: #f50756;
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 0;
+  }
+
+  .vanban-btn {
+    position: absolute;
+    bottom: 8px;
+    right: 40px;
+    background-color: #15a502;
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 0;
+  }
+
+  .shorten-btn:hover {
+    background-color: #ff1582;
+  }
+
+  /* Style the mini button */
+  .shorten-btn2 {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 0;
+  }
+
+  .shorten-btn2:hover {
+    background-color: #26a0dc;
+  }
+
+
+  /* Position wrapper for textarea and button */
+  .textarea-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .chat-bubble {
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+    margin: 5px 0;
+  }
+
+  .user-message {
+    align-self: flex-end;
+    background-color: #007BFF;
+    color: white;
+  }
+
+  .ai-message {
+    align-self: flex-start;
+    background-color: #F1F1F1;
+    color: black;
+  }
+
+  .swal2-popup.swal-dark {
+    background-color: #1e1e1e;
+    color: #e5e5e5;
+  }
+
+  .chat-container {
+    font-family: Arial, sans-serif;
+  }
+
+  .chat-message {
+    cursor: text;
+    user-select: text;
+  }
+
+  .chat-message.ai-message {
+    background-color: #333;
+    color: #e5e5e5;
+  }
+
+  .chat-message.user-message {
+    background-color: #007BFF;
+    color: #FFF;
+    align-self: flex-end;
+  }
+
+  /* table.myTable  thead th {position: sticky;  top: 0; }
+table.myTable  { width: 100%; border: .5px solid black; border-spacing: 0px;}
+table.myTable  td, table.myTable  th { border: .5px solid black;  } */
+
+  .myTable th {
+    position: sticky;
+    top: -1px;
+    /* background-color: #fff; */
+    border-top: 1px solid #4a5568 !important;
+  }
+
+  .avatar {
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 50%;
+    padding: 4px;
+    box-shadow: inset 0 0 0 2px #4D4F6E;
+  }
+
+  .avatar-large {
+    width: 80px;
+    height: 80px;
+  }
+
+  .avatar-x-large {
+    width: 144px;
+    width: 144px;
+  }
+
+  .avatar-image {
+    max-width: 100%;
+    vertical-align: middle;
+    border-radius: 50%;
+  }
+
+  .avatar-frame {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .avatar-large .avatar-frame {
+    top: -10%;
+    left: -10%;
+    max-width: 120%;
+  }
+
+  .avatar-x-large .avatar-frame {
+    top: -12.5%;
+    left: -12.5%;
+    max-width: 125%;
+  }
+
+  .anim-spin {
+    animation: spin 3s linear infinite;
+  }
+
+  .anim-hue {
+    animation: hue 20s linear infinite;
+  }
+
+  @keyframes hue {
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .texteffect {
+    text-shadow: #f6c 1px 1px 10px;
+    color: #FF66CC;
+    font-weight: bold;
+    background: url(https://laptrinhvb.net/background_text.gif);
+  }
+
+  .swal2-popup {
+    background-color: #333333 !important;
+  }
+
+  .swal2-title,
+  .swal2-html-container {
+    color: #fff;
+  }
+
+  #emojiList {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 99999999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin-top: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .emoji {
+    font-size: 18px;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  .emoji:hover {
+    background-color: #f0446f;
+    border-radius: 50%;
+  }
+
+  #campaignModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+    overflow-y: hidden;
+    z-index: 1000;
+  }
+
+  #campaignModal .bg-white {
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 100%;
+    max-width: 700px;
+    margin: 2rem auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .language-switcher {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background: #52555a;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .language-switcher img {
+    width: 24px;
+    height: 16px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    transition: transform 0.2s;
+  }
+
+  .language-switcher img:hover {
+    transform: scale(1.1);
+  }
+
+  #dropdownMenu2 {
+    z-index: 9999 !important;
+  }
+
+  /* .language-switcher img.active {
+  box-shadow: 0 0 3px 2px green;
+} */
